@@ -1,6 +1,6 @@
 #!/bin/bash
 DISTMIRROR=http://distfiles.gentoo.org
-DISTBASE=${DISTMIRROR}/releases/x86/autobuilds/current-install-i686-openrc-minimal/
+DISTBASE=${DISTMIRROR}/releases/x86/autobuilds/current-stage3-i686-openrc/
 FILE=$(wget -q $DISTBASE -O - | grep -o -e "install-x86-minimal-\w*.iso" | uniq)
 
 wget -c $DISTBASE$FILE || exit 1
