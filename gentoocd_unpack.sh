@@ -1,7 +1,7 @@
 #!/bin/bash
 DISTMIRROR=http://distfiles.gentoo.org
-DISTBASE=${DISTMIRROR}/releases/amd64/autobuilds/current-install-amd64-minimal/
-FILE=$(wget -q $DISTBASE -O - | grep -o -e "install-amd64-minimal-\w*.iso" | uniq)
+DISTBASE=${DISTMIRROR}/releases/x86/autobuilds/current-install-i686-openrc-minimal/
+FILE=$(wget -q $DISTBASE -O - | grep -o -e "install-x86-minimal-\w*.iso" | uniq)
 
 wget -c $DISTBASE$FILE || exit 1
 wget -c $DISTBASE$FILE.DIGESTS.asc || exit 2
@@ -11,7 +11,7 @@ for f in ${FILE}; do
   isoname=$f
 done
 
-# https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Media#Linux_based_verification
+# https://wiki.gentoo.org/wiki/Handbook:x86/Installation/Media#Linux_based_verification
 #wget -O- https://gentoo.org/.well-known/openpgpkey/hu/wtktzo4gyuhzu8a4z5fdj3fgmr1u6tob?l=releng | gpg --import
 # slow:
 #gpg --keyserver hkps://keys.gentoo.org --recv-keys 0xBB572E0E2D182910
